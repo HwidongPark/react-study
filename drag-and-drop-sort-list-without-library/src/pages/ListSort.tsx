@@ -20,14 +20,12 @@ export default  function ListSort() {
   //   console.log("drag enter ", index);
   // }
   const onDragEnter = (e: React.DragEvent<HTMLDivElement>, index: number) => {
-    setIsDragging(true);
     // ### drag enter시 화면상 정렬 새로 보이도록 수정
     dragOverItem.current = index;
     const copyFruitItems = [...fruitItems];
     const draggedItem = copyFruitItems.splice(dragItem.current, 1)[0];
     
     copyFruitItems.splice(dragOverItem.current, 0, draggedItem);
-    console.log(`copyFruitItems = `, copyFruitItems);
     setNewOrderFruitItems(copyFruitItems);
   }
 
@@ -63,7 +61,7 @@ export default  function ListSort() {
     setFruitItems(() => copyFruitItem);
     setNewFruitItem(() => '');
   }
-
+  
 
   return (
     <div className="app">
@@ -76,41 +74,16 @@ export default  function ListSort() {
       {/* List Contianer // TODO break into component */}
       <div className="list-container">
         { 
-          !isDragging ?
           // ### Dragging 안하고 있는 경우우
-          fruitItems.map((item, index: number) => {
+          newOrderFruitItems.map((item, index: number) => {
 
             return (
               // draggable이라는 attribute추가하면 -> 드래그할 수 있도록 설정하는 속성
               // draggable="true", draggable="false" 와같이 설정 가능
               <div
                 key={index}
-                className="list-item"                
+                className="list-item"
                 draggable
-                // onDragStart={(e) => { onDragStart(e, index) }}
-                // onDragEnter={(e) => { onDragEnter(e, index)} }
-                onDragStart={(e) => { dragItem.current = index }}
-                onDragEnter={(e) => { onDragEnter(e, index) } }
-                onDragEnd={handleSort}
-                onDragOver={(e) => e.preventDefault()}
-              >
-                <FontAwesomeIcon icon={faBars} />
-                <h3>{item}</h3>
-              </div>
-            )
-          }) :
-          // ### Dragging하고 있는 경우
-          newOrderFruitItems.map((item, index) => {
-
-            return (
-              // draggable이라는 attribute추가하면 -> 드래그할 수 있도록 설정하는 속성
-              // draggable="true", draggable="false" 와같이 설정 가능
-              <div
-                key={index}
-                className="list-item"                
-                draggable
-                // onDragStart={(e) => { onDragStart(e, index) }}
-                // onDragEnter={(e) => { onDragEnter(e, index)} }
                 onDragStart={(e) => { dragItem.current = index }}
                 onDragEnter={(e) => { onDragEnter(e, index) } }
                 onDragEnd={handleSort}
