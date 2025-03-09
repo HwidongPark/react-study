@@ -1,0 +1,14 @@
+.dropzone-page-container {
+  margin: 2rem 5rem;
+}
+
+.dropzone-page-header {
+  font-size: 2rem;
+  color: blue;
+}
+
+.dropzone-div-container {
+  padding: 1.5rem;
+  border: 1px solid lightgray;
+  max-width: 60%;
+}

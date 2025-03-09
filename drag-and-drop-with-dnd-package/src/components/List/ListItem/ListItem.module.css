@@ -1,0 +1,26 @@
+.container {
+  background-color: #FFF5E4;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #578FCA;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 1.5rem;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding-bottom: 4px;
+}
+
+.email {
+  margin: 0;
+}
+
+
+.sortIconContainer {
+  display: flex;
+  align-items: center;
+}

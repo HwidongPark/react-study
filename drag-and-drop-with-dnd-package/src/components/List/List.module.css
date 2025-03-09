@@ -1,0 +1,9 @@
+.container {
+  overflow: hiddne;
+  touch-action: none;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
