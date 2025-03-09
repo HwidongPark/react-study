@@ -29,7 +29,7 @@ export default function Item({ item, forceDragging }: UserItemProps) {
     setActivatorNodeRef,  //-> 문서에 없음
     transform,
     transition,
-  } = useSortable({id: item.id});
+  } = useSortable({id: item.id, data: item}); //-> id뿐 아니라 추가 data들도 data필드에 넣어줄 수 있음
 
   const parentStyles = {
     transform: CSS.Transform.toString(transform),
